@@ -1,9 +1,5 @@
 'use strict';
 
-var confirmed = confirm('Are you ready to rock and roll!?');
+var user = prompt('Hello there!  Before we get started, please tell me your name.');
 
-if(confirmed === true){
-  console.log('The user is ready!');
-} else {
-  console.log('The user said they were not ready... but were going to start anyway.');
-}
+alert('Welcome ' + user + '!')
