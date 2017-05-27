@@ -66,10 +66,24 @@ var question3 = prompt('Do I have pets?').toLowerCase();
 
 if(question3 === 'yes'){
   console.log('user has input yes for question 3');
+  alert('Correct!  I have two cats.  Well sort of.  Technically they are my roomate\'s cats.  But since I take care of them and they love me more they are kind of mine.  I\'ll still count this as correct.');
 } else if(question3 === 'no'){
   console.log('user has input no for question 3');
+  alert('Wrong!  I have two cats.  Well sort of.  Technically they are my roomate\'s cats.  But since I take care of them and they love me more they are kind of mine.  I\'m putting this down as incorrect.  Sorry.');
 } else {
-
+  alert('That is not a valid response.  \'yes\' or \'no\' only please!');
+  console.log('user has not input a valid answer for question3');
+  var question3 = prompt('Do I have pets?').toLowerCase();
+  if(question3 === 'yes'){
+    console.log('user has input yes for question 3');
+    alert('Correct! I have two cats.  Well sort of.  Technically they are my roomate\'s cats.  But since I take care of them and they love me more they are kind of mine.  I\'ll still count this as correct.');
+  } else if(question3 === 'no'){
+    console.log('user has input no for question 3');
+    alert('Wrong!  I have two cats.  Well sort of.  Technically they are my roomate\'s cats.  But since I take care of them and they love me more they are kind of mine.  I\'m putting this down as incorrect.  Sorry.');
+  } else {
+    alert('Again, that is invalid.  Okay, I\'m putting your answer as \'no\'.  You got it wrong!');
+    console.log('user has again input an invalid answer for question 3.  answer is now incorrect.');
+  }
 }
 
 var question4 = prompt('Is my favorite color green?').toLowerCase();
