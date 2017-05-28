@@ -1,4 +1,4 @@
-h1 {
+/*h1 {
   background-color: green;
 }
 
@@ -12,4 +12,17 @@ p {
 
 #unique-p-tag {
   background-color: blue;
+}
+*/
+
+* {
+  border: 2px solid black;
+}
+
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  text-align: center;
 }

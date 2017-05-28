@@ -1,4 +1,5 @@
 'use strict';
+/*
 //greeting--------------------------------------------------------
 var user = prompt('Hello there!  Before we get started, please tell me your name.');
 
@@ -133,3 +134,4 @@ if(question5 === 'yes'){
     console.log('user has again input invalid answer for question 5.  answer is now incorrect.');
   }
 }
+*/
