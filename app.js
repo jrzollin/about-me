@@ -87,4 +87,49 @@ if(question3 === 'yes'){
 }
 
 var question4 = prompt('Is my favorite color green?').toLowerCase();
+
+if(question4 === 'yes'){
+  console.log('user has input yes for question 4');
+  alert('That is incorrect.  My favorite color is white.');
+} else if(question4 === 'no'){
+  console.log('user has input no for question 4');
+  alert('Correct!  My favorite color is white.');
+} else {
+  alert('That is not a valid response.  \'yes\' or \'no\' only please!');
+  console.log('user has not input a valid answer for question 4');
+  var question4 = prompt('Is my favorite color green?').toLowerCase();
+  if(question4 === 'yes'){
+    console.log('user has input yes for question 4');
+    alert('That is incorrect.  My favorite color is white.');
+  } else if(question4 === 'no'){
+    console.log('user has input no for question 4');
+    alert('Correct!  My favorite color is white.');
+  } else {
+    alert('Again, that is invalid.  Okay, I\'m putting your answer as \'yes\'.  Wrong! Wrong! Wrong!');
+    console.log('user has again input invalid answer for question 4.  answer is now incorrect.');
+  }
+}
+
 var question5 = prompt('Can I play an instrument?').toLowerCase();
+
+if(question5 === 'yes'){
+  console.log('user has input yet for question 5');
+  alert('Correct!  I can play the guitar.');
+} else if(question5 === 'no'){
+  console.log('user has input no for question 5');
+  alert('Nope!  I can play the guitar.');
+} else {
+  alert('That is not a valid response. \'yes\' or \'no\' only please!');
+  console.log('user has not input a valid answer for question 5');
+  var question5 = prompt('Can I play an instrument?').toLowerCase();
+  if(question5 === 'yes'){
+    console.log('user has input yes for question 5');
+    alert('Correct!  I can play the guitar.');
+  } else if(question5 === 'no'){
+    console.log('user has input no for question 5');
+    alert('Nope!  I can play the guitar.');
+  } else {
+    alert('Again, that is invalid.  Okay, I\'m putting your answer as \'no\'.  You are wrong!');
+    console.log('user has again input invalid answer for question 5.  answer is now incorrect.');
+  }
+}
