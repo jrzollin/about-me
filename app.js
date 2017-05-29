@@ -1,5 +1,5 @@
 'use strict';
-/*
+
 //greeting--------------------------------------------------------
 var user = prompt('Hello there!  Before we get started, please tell me your name.');
 
@@ -114,7 +114,7 @@ if(question4 === 'yes'){
 var question5 = prompt('Can I play an instrument?').toLowerCase();
 
 if(question5 === 'yes'){
-  console.log('user has input yet for question 5');
+  console.log('user has input yes for question 5');
   alert('Correct!  I can play the guitar.');
 } else if(question5 === 'no'){
   console.log('user has input no for question 5');
@@ -134,4 +134,3 @@ if(question5 === 'yes'){
     console.log('user has again input invalid answer for question 5.  answer is now incorrect.');
   }
 }
-*/
