@@ -91,6 +91,8 @@ for(var i = 0; i < 4; i++){
   console.log('Question 6 guessed: ' + ageGuess);
   if(ageGuess == 35){
     alert('Good job!  You got it right!');
+    reviewAnswers.push('correct');
+    correct++;
     i+=5;
   } else if(ageGuess < 35){
       alert('Higher!  I\'m kinda old.');
@@ -104,6 +106,10 @@ for(var i = 0; i < 4; i++){
     }
 }
 
+if(ageCountdown === 0){
+  alert('Sorry, out of guesses.');
+  reviewAnswers.push('incorrect');
+}
 //debugging loops--------------------------------------------------------------
 
 for(var i = 0; i < allResponse.length; i++){
@@ -114,7 +120,7 @@ for(var i = 0; i < allResponse.length; i++){
 
 alert('Okay ' + user + '. Let\'s see how you did.  Your answers are at the bottom of the page.');
 
-document.write('You got ' + correct + ' out of 5 correct! <br>');
+document.write('You got ' + correct + ' out of 7 correct! <br>');
 
 for(var i = 0; i < reviewAnswers.length; i++){
   document.write('Question ' + (i + 1) +': ' + reviewAnswers[i] + '<br>');
