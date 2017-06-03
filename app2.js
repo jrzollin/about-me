@@ -88,10 +88,6 @@ for(var i = 0; i < allResponse.length; i++){
   console.log('Response ' + (i + 1) + ': ' + allResponse[i]);
 }
 
-for(var i = 0; i < reviewAnswers.length; i++){
-  console.log('Answer ' + (i + 1) + ': ' + reviewAnswers[i]);
-}
-
 //review-----------------------------------------------------------------------
 
 alert('Okay ' + user + '. Let\'s see how you did.  Your answers are at the bottom of the page.');
