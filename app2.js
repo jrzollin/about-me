@@ -61,34 +61,38 @@ var allResponse = [];
 var placesLived = ['alaska', 'montana', 'connecticut', 'maine', 'arizona', 'texas', 'florida', 'nevada', 'idaho'];
 
 //for loop questions 1-5 (the machine)-------------------------------------------------------
-for(var i = 0; i < allQuestions.length; i++){
-  var response = prompt(allQuestions[i]);
-  allResponse.push(response);
-  if(allResponse[i].toLowerCase() === allAnswers[i] || allResponse[i].toLowerCase() === allAnswersAlt[i]){
-    correct++;
-    console.log('Question ' + [i + 1] + ' answer correct');
-    reviewAnswers.push('correct');
-    alert(correctResponse[i]);
-  } else if(allResponse[i].toLowerCase() === incorrectAnswers[i] || allResponse[i].toLowerCase() === incorrectAnswersAlt[i]){
-      incorrect++;
-      console.log('Question ' + [i + 1] + ' answer incorrect');
-      reviewAnswers.push('incorrect');
-      alert(incorrectResponse[i]);
-  } else {
-      console.log('answer invalid');
-      alert(invalidResponse[invalid]);
-      invalid++;
-      allResponse.pop();
-      if(invalid < 4){
-        i--;
+
+function questionSet1() {
+  for(var i = 0; i < allQuestions.length; i++){
+    var response = prompt(allQuestions[i]);
+    allResponse.push(response);
+    if(allResponse[i].toLowerCase() === allAnswers[i] || allResponse[i].toLowerCase() === allAnswersAlt[i]){
+      correct++;
+      console.log('Question ' + [i + 1] + ' answer correct');
+      reviewAnswers.push('correct');
+      alert(correctResponse[i]);
+    } else if(allResponse[i].toLowerCase() === incorrectAnswers[i] || allResponse[i].toLowerCase() ===  incorrectAnswersAlt[i]){
+        incorrect++;
+        console.log('Question ' + [i + 1] + ' answer incorrect');
+        reviewAnswers.push('incorrect');
+        alert(incorrectResponse[i]);
       } else {
-        i+= 10;
-    }
+        console.log('answer invalid');
+        alert(invalidResponse[invalid]);
+        invalid++;
+        allResponse.pop();
+        if(invalid < 4){
+          i--;
+        } else {
+          i+= 10;
+        }
+      }
   }
 }
 
 //for loop question 6 ---------------------------------------------------------
 
+function questionSet2() {
 for(var i = 0; i < 4; i++){
   var ageGuess = prompt(question6 + '  ' + ageCountdown + ' guess(es) left!');
   console.log('Question 6 guessed: ' + ageGuess);
@@ -113,9 +117,11 @@ if(ageCountdown === 0){
   alert('Sorry, out of guesses.');
   reviewAnswers.push('incorrect');
 }
+}
 
 //question 7--------------------------------------------------------------------
 
+function questionSet3() {
 while(placeGuesses > 0){
   var placeResponse = prompt(question7 + '  You have ' + placeGuesses + ' guess(es) left!');
   console.log('Question 7 guessed: ' + placeResponse);
@@ -125,14 +131,26 @@ while(placeGuesses > 0){
       i+=10;
       placeGuesses = -10;
       reviewAnswers.push('correct');
+      correct++;
+      placeGuessed = true;
     }
+
   }
-  placeGuesses--;
+  var placeGuessed = false;
+  if(placeGuessed === false) {
+    alert('Guess again!');
+    placeGuesses--;
+  }
   if(placeGuesses === 0){
     alert('Sorry!  Out of guesses!');
     reviewAnswers.push('incorrect');
   }
 }
+}
+
+questionSet1();
+questionSet2();
+questionSet3();
 
 //debugging loops--------------------------------------------------------------
 
