@@ -134,3 +134,5 @@ if(question5 === 'yes'){
     console.log('user has again input invalid answer for question 5.  answer is now incorrect.');
   }
 }
+
+document.write(question5);
