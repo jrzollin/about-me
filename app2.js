@@ -123,16 +123,14 @@ while(placeGuesses > 0){
     if(placeResponse.toLowerCase() === placesLived[i]){
       alert('Correct!  I have lived there!');
       i+=10;
-      placeGuesses = 0;
+      placeGuesses = -10;
       reviewAnswers.push('correct');
-    } else {
-      alert('Nope!  Guess Again!');
-      placeGuesses--;
-      if(placeGuesses === 0){
-        alert('Sorry, out of guesses.');
-        reviewAnswers.push('incorrect');
-      }
     }
+  }
+  placeGuesses--;
+  if(placeGuesses === 0){
+    alert('Sorry!  Out of guesses!');
+    reviewAnswers.push('incorrect');
   }
 }
 
