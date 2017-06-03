@@ -5,7 +5,7 @@ var user = prompt('Hello there!  Before we begin, please tell me your name.');
 
 alert('Welcome ' + user + '!');
 
-var ready = confirm('Now, we are going to play a quick game.  I am going to ask you 7 questions about myself and you will make a guess as to the answers. The first 5 will be yes or no questions.  If you think it is true, type \'yes\' or \'y\' and if you think it is false type \'no\' or \'n\'.  Question 6 will have you guess a number and questions 7 a place.  Ready to play?');
+var ready = confirm('Now, we are going to play a quick game.  I am going to ask you 7 questions about myself and you will make a guess as to the answers. The first 5 will be yes or no questions.  If you think it is true, type \'yes\' or \'y\' and if you think it is false type \'no\' or \'n\'.  Question 6 will have you guess a number and question 7 a place.  Ready to play?');
 
 if(ready === true){
   alert('Alright, here we go!');
@@ -22,7 +22,8 @@ var question2 = 'Have I served in the military?';
 var question3 = 'Do I have pets?';
 var question4 = 'Is my favorite color green?';
 var question5 = 'Can I play an instrument?';
-var question6 = 'How old am I?'
+var question6 = 'How old am I?';
+var question7 = 'I have lived in 9 states besides Washington.  Can you guess one of them?';
 
 var question1Correct = 'Correct!  I moved here 7 years ago.';
 var question2Correct = 'Correct!  I served 4 years in the Air Force.';
@@ -45,6 +46,7 @@ var correct = 0;
 var incorrect = 0;
 var invalid = 0;
 var ageCountdown = 4;
+var placeGuesses = 6;
 
 var allQuestions = [question1, question2, question3, question4, question5];
 var allAnswers = ['no', 'yes', 'yes', 'no', 'yes'];
@@ -56,6 +58,7 @@ var incorrectResponse = [question1Incorrect, question2Incorrect, question3Incorr
 var invalidResponse = [invalid1, invalid2, invalid3, invalid4];
 var reviewAnswers = [];
 var allResponse = [];
+var placesLived = ['alaska', 'montana', 'connecticut', 'maine', 'arizona', 'texas', 'florida', 'nevada', 'idaho'];
 
 //for loop questions 1-5 (the machine)-------------------------------------------------------
 for(var i = 0; i < allQuestions.length; i++){
@@ -110,6 +113,29 @@ if(ageCountdown === 0){
   alert('Sorry, out of guesses.');
   reviewAnswers.push('incorrect');
 }
+
+//question 7--------------------------------------------------------------------
+
+while(placeGuesses > 0){
+  var placeResponse = prompt(question7 + '  You have ' + placeGuesses + ' guess(es) left!');
+  console.log('Question 7 guessed: ' + placeResponse);
+  for(var i = 0; i < placesLived.length; i++){
+    if(placeResponse.toLowerCase() === placesLived[i]){
+      alert('Correct!  I have lived there!');
+      i+=10;
+      placeGuesses = 0;
+      reviewAnswers.push('correct');
+    } else {
+      alert('Nope!  Guess Again!');
+      placeGuesses--;
+      if(placeGuesses === 0){
+        alert('Sorry, out of guesses.');
+        reviewAnswers.push('incorrect');
+      }
+    }
+  }
+}
+
 //debugging loops--------------------------------------------------------------
 
 for(var i = 0; i < allResponse.length; i++){
@@ -120,7 +146,7 @@ for(var i = 0; i < allResponse.length; i++){
 
 alert('Okay ' + user + '. Let\'s see how you did.  Your answers are at the bottom of the page.');
 
-document.write('You got ' + correct + ' out of 7 correct! <br>');
+document.write('You got ' + correct + ' out of 7 correct ' + user + '! <br>');
 
 for(var i = 0; i < reviewAnswers.length; i++){
   document.write('Question ' + (i + 1) +': ' + reviewAnswers[i] + '<br>');
