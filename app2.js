@@ -67,19 +67,19 @@ for(var i = 0; i < allQuestions.length; i++){
     reviewAnswers.push('correct');
     alert(correctResponse[i]);
   } else if(allResponse[i].toLowerCase() === incorrectAnswers[i] || allResponse[i].toLowerCase() === incorrectAnswersAlt[i]){
-    incorrect++;
-    console.log('Question ' + [i + 1] + ' answer incorrect');
-    reviewAnswers.push('incorrect');
-    alert(incorrectResponse[i]);
+      incorrect++;
+      console.log('Question ' + [i + 1] + ' answer incorrect');
+      reviewAnswers.push('incorrect');
+      alert(incorrectResponse[i]);
   } else {
-    console.log('answer invalid');
-    alert(invalidResponse[invalid]);
-    invalid++;
-    allResponse.pop();
-    if(invalid < 4){
-    i--;
-    } else {
-    i+= 10;
+      console.log('answer invalid');
+      alert(invalidResponse[invalid]);
+      invalid++;
+      allResponse.pop();
+      if(invalid < 4){
+        i--;
+      } else {
+        i+= 10;
     }
   }
 }
@@ -89,20 +89,20 @@ for(var i = 0; i < allQuestions.length; i++){
 for(var i = 0; i < 4; i++){
   var ageGuess = prompt(question6 + '  ' + ageCountdown + ' guess(es) left!');
   console.log('Question 6 guessed: ' + ageGuess);
-  if(ageGuess === 35){
+  if(ageGuess == 35){
     alert('Good job!  You got it right!');
-    i+=5
+    i+=5;
   } else if(ageGuess < 35){
-    alert('Higher!  I\'m kinda old.');
-    ageCountdown--;
+      alert('Higher!  I\'m kinda old.');
+      ageCountdown--;
   } else if(ageGuess > 35){
-    alert('Hey!  I aint that old.  I still consider myself young.  Guess lower.');
-    ageCountdown--;
+      alert('Hey!  I aint that old.  I still consider myself young.  Guess lower.');
+      ageCountdown--;
   } else {
       alert('That is not a number.  That takes away one of your guesses.');
       ageCountdown--;
     }
-  }
+}
 
 //debugging loops--------------------------------------------------------------
 
