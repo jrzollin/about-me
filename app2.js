@@ -5,7 +5,7 @@ var user = prompt('Hello there!  Before we begin, please tell me your name.');
 
 alert('Welcome ' + user + '!');
 
-var ready = confirm('Now, we are going to play a quick game.  I am going to ask you 5 questions about myself and you will guess wether they are true or not.  If you think it is true, type \'yes\' or \'y\' and if you think it is false type \'no\' or \'n\'.  Ready to play?');
+var ready = confirm('Now, we are going to play a quick game.  I am going to ask you 7 questions about myself and you will make a guess as to the answers. The first 5 will be yes or no questions.  If you think it is true, type \'yes\' or \'y\' and if you think it is false type \'no\' or \'n\'.  Question 6 will have you guess a number and questions 7 a place.  Ready to play?');
 
 if(ready === true){
   alert('Alright, here we go!');
@@ -22,6 +22,7 @@ var question2 = 'Have I served in the military?';
 var question3 = 'Do I have pets?';
 var question4 = 'Is my favorite color green?';
 var question5 = 'Can I play an instrument?';
+var question6 = 'How old am I?'
 
 var question1Correct = 'Correct!  I moved here 7 years ago.';
 var question2Correct = 'Correct!  I served 4 years in the Air Force.';
@@ -43,6 +44,7 @@ var invalid4 = 'That\'s it.  Game over man.  Game over.';
 var correct = 0;
 var incorrect = 0;
 var invalid = 0;
+var ageCountdown = 4;
 
 var allQuestions = [question1, question2, question3, question4, question5];
 var allAnswers = ['no', 'yes', 'yes', 'no', 'yes'];
@@ -55,7 +57,7 @@ var invalidResponse = [invalid1, invalid2, invalid3, invalid4];
 var reviewAnswers = [];
 var allResponse = [];
 
-//for loop (the machine)-------------------------------------------------------
+//for loop questions 1-5 (the machine)-------------------------------------------------------
 for(var i = 0; i < allQuestions.length; i++){
   var response = prompt(allQuestions[i]);
   allResponse.push(response);
@@ -81,6 +83,26 @@ for(var i = 0; i < allQuestions.length; i++){
     }
   }
 }
+
+//for loop question 6 ---------------------------------------------------------
+
+for(var i = 0; i < 4; i++){
+  var ageGuess = prompt(question6 + '  ' + ageCountdown + ' guess(es) left!');
+  console.log('Question 6 guessed: ' + ageGuess);
+  if(ageGuess === 35){
+    alert('Good job!  You got it right!');
+    i+=5
+  } else if(ageGuess < 35){
+    alert('Higher!  I\'m kinda old.');
+    ageCountdown--;
+  } else if(ageGuess > 35){
+    alert('Hey!  I aint that old.  I still consider myself young.  Guess lower.');
+    ageCountdown--;
+  } else {
+      alert('That is not a number.  That takes away one of your guesses.');
+      ageCountdown--;
+    }
+  }
 
 //debugging loops--------------------------------------------------------------
 
