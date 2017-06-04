@@ -47,6 +47,7 @@ var incorrect = 0;
 var invalid = 0;
 var ageCountdown = 4;
 var placeGuesses = 6;
+var placeGuessed = false;
 
 var allQuestions = [question1, question2, question3, question4, question5];
 var allAnswers = ['no', 'yes', 'yes', 'no', 'yes'];
@@ -125,9 +126,14 @@ while(placeGuesses > 0){
       i+=10;
       placeGuesses = -10;
       reviewAnswers.push('correct');
+      correct++;
+      placeGuessed = true;
     }
   }
-  placeGuesses--;
+  if(placeGuessed === false) {
+    alert('Guess again!');
+    placeGuesses--;
+  }
   if(placeGuesses === 0){
     alert('Sorry!  Out of guesses!');
     reviewAnswers.push('incorrect');
