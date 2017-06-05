@@ -45,9 +45,11 @@ var invalid4 = 'That\'s it.  Game over man.  Game over.';
 var correct = 0;
 var incorrect = 0;
 var invalid = 0;
+var invalidLeft = 5;
 var ageCountdown = 4;
 var placeGuesses = 6;
 var placeGuessed = false;
+
 
 var allQuestions = [question1, question2, question3, question4, question5];
 var allAnswers = ['no', 'yes', 'yes', 'no', 'yes'];
@@ -62,83 +64,98 @@ var allResponse = [];
 var placesLived = ['alaska', 'montana', 'connecticut', 'maine', 'arizona', 'texas', 'florida', 'nevada', 'idaho'];
 
 //for loop questions 1-5 (the machine)-------------------------------------------------------
-for(var i = 0; i < allQuestions.length; i++){
-  var response = prompt(allQuestions[i]);
-  allResponse.push(response);
-  if(allResponse[i].toLowerCase() === allAnswers[i] || allResponse[i].toLowerCase() === allAnswersAlt[i]){
-    correct++;
-    console.log('Question ' + [i + 1] + ' answer correct');
-    reviewAnswers.push('correct');
-    alert(correctResponse[i]);
-  } else if(allResponse[i].toLowerCase() === incorrectAnswers[i] || allResponse[i].toLowerCase() === incorrectAnswersAlt[i]){
-      incorrect++;
-      console.log('Question ' + [i + 1] + ' answer incorrect');
-      reviewAnswers.push('incorrect');
-      alert(incorrectResponse[i]);
-  } else {
-      console.log('answer invalid');
-      alert(invalidResponse[invalid]);
-      invalid++;
-      allResponse.pop();
-      if(invalid < 4){
-        i--;
+function questionSet1(){
+  for(var i = 0; i < allQuestions.length; i++){
+    var response = prompt(allQuestions[i]);
+    allResponse.push(response);
+    if(allResponse[i].toLowerCase() === allAnswers[i] || allResponse[i].toLowerCase() === allAnswersAlt[i]){
+      correct++;
+      console.log('Question ' + [i + 1] + ' answer correct');
+      reviewAnswers.push('correct');
+      alert(correctResponse[i]);
+      invalidLeft--;
+    } else if(allResponse[i].toLowerCase() === incorrectAnswers[i] || allResponse[i].toLowerCase() === incorrectAnswersAlt[i]){
+        incorrect++;
+        console.log('Question ' + [i + 1] + ' answer incorrect');
+        reviewAnswers.push('incorrect');
+        alert(incorrectResponse[i]);
+        invalidLeft--;
       } else {
-        i+= 10;
+        console.log('answer invalid');
+        alert(invalidResponse[invalid]);
+        invalid++;
+        allResponse.pop();
+        if(invalid < 4){
+          i--;
+        } else {
+          i+= 10;
+          for(var x = 0; x < invalidLeft; x++){
+            reviewAnswers.push('incorrect');
+          }
+        }
+      }
     }
-  }
 }
-
 //for loop question 6 ---------------------------------------------------------
 
-for(var i = 0; i < 4; i++){
-  var ageGuess = prompt(question6 + '  ' + ageCountdown + ' guess(es) left!');
-  console.log('Question 6 guessed: ' + ageGuess);
-  if(ageGuess == 35){
-    alert('Good job!  You got it right!');
-    reviewAnswers.push('correct');
-    correct++;
-    i+=5;
-  } else if(ageGuess < 35){
-      alert('Higher!  I\'m kinda old.');
-      ageCountdown--;
-  } else if(ageGuess > 35){
-      alert('Hey!  I aint that old.  I still consider myself young.  Guess lower.');
-      ageCountdown--;
-  } else {
-      alert('That is not a number.  That takes away one of your guesses.');
-      ageCountdown--;
-    }
-}
-
-if(ageCountdown === 0){
-  alert('Sorry, out of guesses.');
-  reviewAnswers.push('incorrect');
-}
-
-//question 7--------------------------------------------------------------------
-
-while(placeGuesses > 0){
-  var placeResponse = prompt(question7 + '  You have ' + placeGuesses + ' guess(es) left!');
-  console.log('Question 7 guessed: ' + placeResponse);
-  for(var i = 0; i < placesLived.length; i++){
-    if(placeResponse.toLowerCase() === placesLived[i]){
-      alert('Correct!  I have lived there!');
-      i+=10;
-      placeGuesses = -10;
+function questionSet2(){
+  for(var i = 0; i < 4; i++){
+    var ageGuess = prompt(question6 + '  ' + ageCountdown + ' guess(es) left!');
+    console.log('Question 6 guessed: ' + ageGuess);
+    if(ageGuess == 35){
+      alert('Good job!  You got it right!');
       reviewAnswers.push('correct');
       correct++;
-      placeGuessed = true;
+      i+=5;
+    } else if(ageGuess < 35){
+        alert('Higher!  I\'m kinda old.');
+        ageCountdown--;
+      } else if(ageGuess > 35){
+        alert('Hey!  I aint that old.  I still consider myself young.  Guess lower.');
+        ageCountdown--;
+      } else {
+        alert('That is not a number.  That takes away one of your guesses.');
+        ageCountdown--;
+      }
+    }
+
+    if(ageCountdown === 0){
+      alert('Sorry, out of guesses.');
+      reviewAnswers.push('incorrect');
+    }
+}
+//question 7--------------------------------------------------------------------
+
+function questionSet3(){
+  while(placeGuesses > 0){
+    var placeResponse = prompt(question7 + '  You have ' + placeGuesses + ' guess(es) left!');
+    console.log('Question 7 guessed: ' + placeResponse);
+    for(var i = 0; i < placesLived.length; i++){
+      if(placeResponse.toLowerCase() === placesLived[i]){
+        alert('Correct!  I have lived there!');
+        i+=10;
+        placeGuesses = -10;
+        reviewAnswers.push('correct');
+        correct++;
+        placeGuessed = true;
+      }
+    }
+    if(placeGuessed === false) {
+      alert('Guess again!');
+      placeGuesses--;
+    }
+    if(placeGuesses === 0){
+      alert('Sorry!  Out of guesses!');
+      reviewAnswers.push('incorrect');
     }
   }
-  if(placeGuessed === false) {
-    alert('Guess again!');
-    placeGuesses--;
-  }
-  if(placeGuesses === 0){
-    alert('Sorry!  Out of guesses!');
-    reviewAnswers.push('incorrect');
-  }
 }
+
+//function calls===============================================================
+
+questionSet1();
+questionSet2();
+questionSet3();
 
 //debugging loops--------------------------------------------------------------
 
