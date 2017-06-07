@@ -1,4 +1,18 @@
 
+
+/*#background1 {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbC8g4xC_50uNU4oTG1sKAeA4czNT2AB97-Pi-MK3Cc2uADN6kzA");
+  background-attachment: fixed;
+  filter: alpha(opacity=90);
+  opacity: .9;
+}
+
+#background2 {
+  background-image: ("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/NGC_4414_%28NASA-med%29.jpg/1200px-NGC_4414_%28NASA-med%29.jpg");
+
+}*/
+
+
 h1 {
   text-align: center;
   width: 500px;
@@ -16,4 +30,8 @@ h3 {
 
 .paragraph {
   margin: 10px;
+}
+
+h5 {
+  margin: 5px;
 }

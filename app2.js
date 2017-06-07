@@ -140,7 +140,7 @@ function questionSet3(){
         placeGuessed = true;
       }
     }
-    if(placeGuessed === false) {
+    if(placeGuessed === false && placeGuesses !== 0) {
       alert('Guess again!');
       placeGuesses--;
     }
