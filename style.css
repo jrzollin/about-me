@@ -1,37 +1,55 @@
 
 
-/*#background1 {
+body {
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbC8g4xC_50uNU4oTG1sKAeA4czNT2AB97-Pi-MK3Cc2uADN6kzA");
   background-attachment: fixed;
-  filter: alpha(opacity=90);
-  opacity: .9;
+  /*filter: alpha(opacity=90);
+  opacity: .9;*/
 }
 
-#background2 {
-  background-image: ("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/NGC_4414_%28NASA-med%29.jpg/1200px-NGC_4414_%28NASA-med%29.jpg");
+.background2 {
+/*  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/NGC_4414_%28NASA-med%29.jpg/1200px-NGC_4414_%28NASA-med%29.jpg");
 
-}*/
+  opacity: .7;*/
+
+
+}
 
 
 h1 {
   text-align: center;
   width: 500px;
-  border: 4px solid black;
+  border: 10px solid black;
+  border-style: double;
   border-radius: 15px;
-  margin: 10px auto 10px auto;
+  margin: 50px auto 10px auto;
+  background-color: yellow;
 }
 
 h3 {
   width: 400px;
-  background-color: lightblue;
-  margin: 5px;
+  margin: 30px auto;
   padding: 5px;
+  text-align: center;
+  font-size: 35px;
+  border-bottom: 2px solid black;
 }
 
-.paragraph {
-  margin: 10px;
+p {
+  margin: 30px;
 }
 
 h5 {
-  margin: 5px;
+  margin: 30px;
+}
+
+.content {
+  section.content: revert;
+  background-color: yellow;
+  width: 80%;
+  margin: auto;
+  margin-top: 500px;
+  padding: 10px;
+  border: 10px solid blacK;
+  border-style: double;
 }
